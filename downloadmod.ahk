@@ -4,6 +4,7 @@ rarFile := download . "\mods.rar"
 defaultOutputFolder := unzipFolder
 defaultRarFile := rarFile
 
+
 Menu Tray, Icon, shell32.dll, 123
 
 Gui, Add, Text, x20 y20 w100 h20, RAR 檔案:
@@ -20,6 +21,7 @@ Gui, Add, Button, x20 y80 w150 h30 gInstall, 開始安裝
 Gui, Show, w450 h120, 自動安裝模組工具 V2.0
 
 Return
+
 
 SelectFile:
     FileSelectFile, SelectedFile, , , 開啟檔案, RAR壓縮檔 (*.rar)
@@ -56,6 +58,8 @@ Install:
         OutputFolder := defaultOutputFolder
     }
 
+    InputBox, userInput, 輸入數字, 請輸入模組包模組數量(可輸入大約數量)：
+    result := userInput * 66.66666666
     Send, #r
     Sleep, 500
     SendInput, {TEXT}%appdata%\.minecraft\mods
@@ -66,7 +70,7 @@ Install:
     Send, {Delete}
     Sleep, 2000
     RunWait, "C:\Program Files\WinRAR\WinRAR.exe" x "%SelectedFile%" "%OutputFolder%"
-    Sleep, 2000
+    Sleep, %result%
     WinClose, ahk_class CabinetWClass
     Sleep, 1000
     MsgBox, 成功安裝新模組，可以關閉此視窗了
