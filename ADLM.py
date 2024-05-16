@@ -60,6 +60,14 @@ def delete_files(folder):
             print(f"刪除 {file_path} 時發生錯誤：{e}")
 
 
+def show_adlm_page():
+    notebook.select(adlm_frame)
+
+
+def show_other_tool_page():
+    notebook.select(other_tool_frame)
+
+
 executable_dir = os.path.dirname(sys.argv[0])
 icon_path = os.path.join(executable_dir, 'icon.ico')
 
@@ -70,6 +78,20 @@ root.resizable(False, False)
 
 notebook = ttk.Notebook(root)
 
+# Home page
+home_frame = ttk.Frame(notebook)
+notebook.add(home_frame, text='主頁')
+
+home_label = tk.Label(home_frame, text="歡迎使用 Minecraft 工具箱")
+home_label.pack(padx=10, pady=10)
+
+goto_adlm_button = tk.Button(home_frame, text="前往 ADLM 頁面", command=show_adlm_page)
+goto_adlm_button.pack(padx=10, pady=10)
+
+goto_other_tool_button = tk.Button(home_frame, text="前往其他工具頁面", command=show_other_tool_page)
+goto_other_tool_button.pack(padx=10, pady=10)
+
+# ADLM page
 adlm_frame = ttk.Frame(notebook)
 notebook.add(adlm_frame, text='ADLM')
 
@@ -97,8 +119,9 @@ set_default_folder_button.grid(row=2, column=1, padx=10, pady=10)
 install_button = tk.Button(adlm_frame, text="開始安裝", command=install)
 install_button.grid(row=3, column=1, padx=10, pady=10)
 
+# Other tools page TEST
 other_tool_frame = ttk.Frame(notebook)
-notebook.add(other_tool_frame, text='懶人安裝Forge')
+notebook.add(other_tool_frame, text='其他工具')
 
 other_tool_label = tk.Label(other_tool_frame, text="敬請期待")
 other_tool_label.pack(padx=10, pady=10)
